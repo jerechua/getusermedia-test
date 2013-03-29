@@ -5,8 +5,7 @@ navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia
 
 function startVideo() {
 
-    var sourcevid = document.getElementById('sourcevid');
-    var playback = document.getElementById('playback');
+    var sourcevid = $('#sourcevid').get(0);
 
     // Replace the source of the video element with the stream from the camera
 
@@ -14,8 +13,14 @@ function startVideo() {
 
     function successCallback(stream) {
     console.log("creating video stream");
-    var src = window.URL.createObjectURL(stream);
-    sourcevid.src = src;
+    sourcevid.src = window.URL.createObjectURL(stream);
+    sourcevid.addEventListener('loadedmetadata', function() {
+      this.volume = 1;
+      this.muted = false;
+    }, false);
+
+    console.dir(sourcevid);
+    
 
     }
     function errorCallback(error) {
