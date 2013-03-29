@@ -17,18 +17,18 @@ function startVideo() {
     var src = window.URL.createObjectURL(stream);
     sourcevid.src = src;
 
-}
-function errorCallback(error) {
-    console.log("why you no work?!?!?!?");
-    console.error('An error occurred: [CODE ' + error.code + ']');
-    return;
-}
+    }
+    function errorCallback(error) {
+        console.log("why you no work?!?!?!?");
+        console.error('An error occurred: [CODE ' + error.code + ']');
+        return;
+    }
 
 }
 
 function showData() {
-var sourcevid = document.getElementById('sourcevid');
+    var sourcevid = document.getElementById('sourcevid');
 
-console.dir(sourcevid);
+    console.dir(sourcevid);
 }
 
