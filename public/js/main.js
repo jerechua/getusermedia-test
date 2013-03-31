@@ -15,8 +15,13 @@ function startVideo() {
     console.log("creating video stream");
     sourcevid.src = window.URL.createObjectURL(stream);
     sourcevid.addEventListener('loadedmetadata', function() {
-      this.volume = 1;
-      this.muted = false;
+        console.log(this.volume, this.muted);
+
+        //TEMP: set volume to 0 then to 1 to fix volume bug
+        this.volume = 0;
+        this.volume = 1;
+
+        this.muted = false;
     }, false);
 
     console.dir(sourcevid);
@@ -36,4 +41,3 @@ function showData() {
 
     console.dir(sourcevid);
 }
-
